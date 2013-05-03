@@ -1,6 +1,8 @@
 net = require 'net'
 
 server = net.createServer (socket) ->
+  
+server.on 'connection', (socket) ->
   socket.write 'Hello, world'
   socket.pipe socket
 
