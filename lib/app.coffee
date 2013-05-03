@@ -8,4 +8,5 @@ server.on 'connection', (socket) ->
 
 module.exports = server
 
-server.listen 7000, '127.0.0.1'
+unless module.parent
+  server.listen 7000
