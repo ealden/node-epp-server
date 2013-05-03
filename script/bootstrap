@@ -1,0 +1,39 @@
+#!/bin/sh
+#
+# node-epp-server
+#
+# EPP server written in Node.js
+
+set -e
+
+echo ""
+echo "  node-epp-server"
+echo "  EPP server written in Node.js"
+echo ""
+
+# Check for Node.js
+if test ! $(which node); then
+  echo "  x You need to install Node.js"
+  echo "    brew install node"
+  exit
+else
+  echo "  + Node.js found."
+fi
+
+# Check for NPM
+if test ! $(which npm); then
+  echo "  x You need to install NPM"
+  echo "    curl http://npmjs.org/install.sh | sh"
+  exit
+else
+  echo "  + NPM found."
+fi
+
+# Install Node modules
+# Remove any existing node_modules first, then install
+echo "  + Installing Node modules."
+rm -rf node_modules/
+npm install &> /dev/null
+
+echo ""
+echo "  We're ready to rock!"
