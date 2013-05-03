@@ -21,4 +21,5 @@ describe 'EPP Server', () ->
       client.on 'data', (data) ->
         data.toString().should.equal 'Hello, world'
 
+        client.end()
         done()
